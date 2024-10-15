@@ -1,0 +1,259 @@
+/* General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header {
+    display: flex; /* Usar flexbox para organizar los elementos */
+    justify-content: space-between; /* Espaciado entre los elementos */
+    align-items: center; /* Centrar verticalmente */
+    padding: 20px; /* Espaciado alrededor del header */
+    background-color:  #faf0e6; /* Fondo blanco para el header */
+    border-bottom: 2px solid #ccc; /* Línea de separación inferior */
+}
+
+nav {
+    flex-grow: 1; /* Permite que el nav ocupe el espacio restante */
+    display: flex; /* Usar flexbox para el nav */
+    justify-content: center; /* Centra los elementos dentro del nav */
+}
+
+nav ul {
+    list-style: none; /* Quitar viñetas de la lista */
+    display: flex; /* Usar flexbox para los enlaces del menú */
+    gap: 15px; /* Espacio entre los enlaces */
+}
+
+nav ul li a {
+    text-decoration: none; /* Quitar subrayado de los enlaces */
+    color: #333; /* Color del texto */
+    font-weight: bold; /* Negrita para los enlaces */
+    padding: 5px 10px; /* Espacio interno para los enlaces */
+    border-radius: 5px; /* Bordes redondeados opcionales */
+    transition: background-color 0.3s; /* Transición para el hover */
+}
+
+/* Efecto hover opcional */
+nav ul li a:hover {
+    background-color: #f0f0f0; /* Cambia el fondo al pasar el mouse */
+}
+
+.header-icons {
+    display: flex; /* Flexbox para los iconos */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.header-icons .icon {
+    width: 30px; /* Tamaño de los iconos */
+    height: auto; /* Mantener la proporción */
+    margin-left: 15px; /* Espacio entre los iconos */
+}
+
+
+/* Hero Section */
+#hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Carousel */
+.carousel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Detrás del texto */
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%; /* Ajusta el ancho al 100% multiplicado por el número de imágenes */
+}
+
+.carousel-images img {
+    width: 50%; /* Ocuparán todo el ancho del carrusel */
+    height:70%; /* Ajusta la altura proporcionalmente */
+     /* Limita la altura máxima a un 80% de la pantalla */
+    object-fit: contain; /* Asegura que la imagen mantenga su proporción */
+}
+
+
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+/* Hero Text */
+.hero-text {
+    position: relative;
+    z-index: 1; /* Sobre el carrusel */
+    text-align: center;
+    color: white;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.btn {
+    background-color: #ff6363;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff4b4b;
+}
+
+
+/* Sección de personalización */
+#personalizacion {
+    padding: 50px;
+    background-color: #f8f8f8; /* Color de fondo suave */
+    background-color: #faf0e6;
+}
+
+.column-container {
+    display: flex;
+    flex-wrap: wrap; /* Asegura que las columnas sean responsivas */
+    justify-content: space-between;
+    gap: 20px;
+    align-items: flex-start;
+    background-color: #faf0e6; /* Fondo beige claro para ambas columnas */
+    border-radius: 10px; /* Borde redondeado opcional */
+    padding: 20px;
+}
+
+/* Columna izquierda (texto) */
+.column-left {
+    flex: 1 1 45%; /* Ocupa el 45% del ancho disponible */
+    text-align: justify;
+    background-color: #faf0e6; /* Beige claro */
+    padding: 20px; /* Espacio interno para el contenido */
+    border-radius: 10px; /* Borde redondeado para la columna izquierda */
+}
+
+.column-left h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #333; /* Color oscuro para el título */
+    text-align: center;
+}
+
+.column-left p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555; /* Color gris para el texto */
+    margin-left: 20px;
+    margin-right: 40px;
+    text-align: center;
+}
+
+/* Estilo para la imagen del logo en la columna izquierda */
+.column-left .logo {
+    margin-top: 20px; /* Separación entre el texto y el logo */
+    width: 150px; /* Puedes ajustar este valor según el tamaño que prefieras */
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Centra la imagen en la columna */
+}
+
+
+/* Columna derecha (video) */
+.column-right {
+    flex: 1 1 45%; /* Ocupa el 45% del ancho disponible */
+}
+
+.column-right video {
+    width: 100%; /* Video ocupará todo el ancho de su columna */
+    height: auto;
+    border-radius: 10px; /* Bordes redondeados opcionales */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Para pantallas pequeñas (responsive) */
+@media (max-width: 768px) {
+    .column-container {
+        flex-direction: column; /* Las columnas se apilan verticalmente en pantallas pequeñas */
+    }
+
+    .column-left, .column-right {
+        flex: 1 1 100%; /* Ambas columnas ocuparán el 100% del ancho */
+    }
+
+    .column-left {
+        margin-bottom: 20px; /* Añadir un margen para separar las columnas */
+    }
+}
+
+
+/* Productos Section */
+#productos {
+    padding: 50px;
+    text-align: center;
+}
+
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas de igual tamaño */
+    gap: 50px; /* Espacio entre los elementos */
+    justify-items: center; /* Centra los items en cada columna */
+    margin-top: 5%;
+}
+
+.grid-gallery img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-width: 200px; /* Puedes ajustar el tamaño máximo de las imágenes si es necesario */
+    border-radius: 10px; /* Añade un borde redondeado si quieres */
+}
+
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
