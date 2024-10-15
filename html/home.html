@@ -18,10 +18,23 @@
             </ul>
         </nav>
         <div class="header-icons">
-            <img src="/img/imgcarrito.png" alt="Carrito" class="icon">
+            <div class="cart" id="openCart">
+                <img src="/img/imgcarrito.png" alt="Carrito" class="icon">
+                <span id="cart-count">0</span> <!-- Muestra la cantidad de artículos -->
+            </div>
             <a href="https://www.instagram.com/zgz_cocrea/" target="_blank">
                 <img src="/img/imginsta.png" alt="Instagram" class="icon">
             </a>
+        </div>
+        <!-- Modal del Carrito -->
+        <div id="cartModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeCart">&times;</span>
+                <h2>Tu Carrito</h2>
+                <div id="cartItems"></div>
+                <p id="cartTotal">Total: 0€</p>
+                <button class="btn-add" id="checkout">Finalizar Compra</button>
+            </div>
         </div>
     </header>
 
@@ -44,7 +57,7 @@
             <a href="#productos" class="btn">Ver Productos</a>
         </div>
     </section>
-    <!-- parte de la personalizacion -->
+
     <section id="personalizacion">
         <div class="column-container">
             <div class="column-left">
@@ -57,12 +70,11 @@
                     tus recuerdos. Haz de cada brindis un momento aún más especial, creando piezas
                     que cuentan tu historia, llenas de significado y estilo.
                 </p>
-                <!-- Imagen del logo debajo del texto -->
                 <img src="/img/imglogo.png" alt="Logo Cocrea" class="logo">
+                <button class="btn-inmortalizalo">Inmortalízalo</button>
             </div>
-            
+
             <div class="column-right">
-                <!-- Aquí irá el video -->
                 <video controls>
                     <source src="videos/video.mp4" type="video/mp4">
                     Tu navegador no soporta la reproducción de video.
@@ -73,21 +85,98 @@
 
     <section id="productos">
         <h2>Nuestras copas personalizadas</h2>
+        <p class="catalogo-descripcion">
+            Aquí está nuestro amplio catálogo de copas de vino con una gran variedad de modelos y diseños únicos.
+            Cada copa puede ser personalizada para hacer de tus momentos especiales algo aún más memorable.
+            ¡Elige tu copa favorita y personalízala como más te guste!
+        </p>
         <div class="grid-gallery">
-            <div class="gallery-item"><img src="/img/imgcopa1.png" alt="Copa 1"></div>
-            <div class="gallery-item"><img src="/img/imgcopa1.png" alt="Copa 2"></div>
-            <div class="gallery-item"><img src="/img/imgcopa1.png" alt="Copa 3"></div>
-            <div class="gallery-item"><img src="/img/imgcopa1.png" alt="Copa 4"></div>
-            <div class="gallery-item"><img src="/img/imgcopa1.png" alt="Copa 5"></div>
-            <div class="gallery-item"><img src="/img/imgcopa1.png" alt="Copa 6"></div>
-            <div class="gallery-item"><img src="/img/imgcopa1.png" alt="Copa 7"></div>
-            <div class="gallery-item"><img src="/img/imgcopa1.png" alt="Copa 8"></div>
+            <div class="gallery-item" onclick="openModal('/img/imgcopa1.png', 'Copa 1', '10€')">
+                <img src="/img/imgcopa1.png" alt="Copa 1">
+                <p>Copa 1</p>
+                <p>10€</p>
+            </div>
+            <div class="gallery-item" onclick="openModal('/img/imgcopa2.png', 'Copa 2', '12€')">
+                <img src="/img/imgcopa2.png" alt="Copa 2">
+                <p>Copa 2</p>
+                <p>12€</p>
+            </div>
+            <div class="gallery-item" onclick="openModal('/img/imgcopa3.png', 'Copa 3', '15€')">
+                <img src="/img/imgcopa3.png" alt="Copa 3">
+                <p>Copa 3</p>
+                <p>15€</p>
+            </div>
+            <div class="gallery-item" onclick="openModal('/img/imgcopa4.png', 'Copa 4', '10€')">
+                <img src="/img/imgcopa4.png" alt="Copa 4">
+                <p>Copa 4</p>
+                <p>10€</p>
+            </div>
+            <div class="gallery-item" onclick="openModal('/img/imgcopa5.png', 'Copa 5', '18€')">
+                <img src="/img/imgcopa5.png" alt="Copa 5">
+                <p>Copa 5</p>
+                <p>18€</p>
+            </div>
+            <div class="gallery-item" onclick="openModal('/img/imgcopa6.png', 'Copa 6', '20€')">
+                <img src="/img/imgcopa6.png" alt="Copa 6">
+                <p>Copa 6</p>
+                <p>20€</p>
+            </div>
+            <div class="gallery-item" onclick="openModal('/img/imgcopa7.png', 'Copa 7', '11€')">
+                <img src="/img/imgcopa7.png" alt="Copa 7">
+                <p>Copa 7</p>
+                <p>11€</p>
+            </div>
+            <div class="gallery-item" onclick="openModal('/img/imgcopa8.png', 'Copa 8', '14€')">
+                <img src="/img/imgcopa8.png" alt="Copa 8">
+                <p>Copa 8</p>
+                <p>14€</p>
+            </div>
         </div>
     </section>
 
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <img id="modal-img" class="modal-image" style="width: 100%; max-width: 300px;">
+            <div class="modal-details">
+                <div class="caption" id="modal-title"></div>
+                <div class="price" id="modal-price"></div>
+                <div class="quantity-controls">
+                    <button id="decrease">-</button>
+                    <span id="quantity">1</span>
+                    <button id="increase">+</button>
+                </div>
+                <button id="add-to-cart" class="btn-add">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
 
     <footer>
-        <p>Síguenos en Instagram: <a href="https://instagram.com/zgz_cocrea">@zgz_cocrea</a></p>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Ubicación</h3>
+                <p>Calle Ejemplo 123</p>
+                <p>50001, Zaragoza</p>
+                <p>España</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Nuestros Productos</h3>
+                <ul>
+                    <li><a href="#">Copas</a></li>
+                    <li><a href="#">Botellas</a></li>
+                    <li><a href="#">Pack</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contacto</h3>
+                <p>Tel: +34 123 456 789</p>
+                <p>Email: info@ejemplo.com</p>
+                <p>Instagram: @</p>
+            </div>
+        </div>
     </footer>
 
     <script src="/js/script.js"></script>

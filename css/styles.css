@@ -187,6 +187,33 @@ button.next {
     margin-right: 40px;
     text-align: center;
 }
+.btn-inmortalizalo {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #f04e23;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 70%;
+}
+
+.btn-inmortalizalo:hover {
+    background-color: #d3441e;
+}
+
+.column-left {
+    position: relative;
+}
+
+.logo {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
 
 /* Estilo para la imagen del logo en la columna izquierda */
 .column-left .logo {
@@ -211,26 +238,12 @@ button.next {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
 
-/* Para pantallas pequeñas (responsive) */
-@media (max-width: 768px) {
-    .column-container {
-        flex-direction: column; /* Las columnas se apilan verticalmente en pantallas pequeñas */
-    }
-
-    .column-left, .column-right {
-        flex: 1 1 100%; /* Ambas columnas ocuparán el 100% del ancho */
-    }
-
-    .column-left {
-        margin-bottom: 20px; /* Añadir un margen para separar las columnas */
-    }
-}
-
 
 /* Productos Section */
 #productos {
     padding: 50px;
     text-align: center;
+    
 }
 
 .grid-gallery {
@@ -249,11 +262,132 @@ button.next {
     border-radius: 10px; /* Añade un borde redondeado si quieres */
 }
 
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+.catalogo-descripcion {
+    font-size: 18px;
+    text-align: center;
+    color: black; /* Color del texto blanco */
+    background-color: #faf0e6; /* Fondo con un color llamativo */
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    margin-bottom: 30px;
+    line-height: 1.6;
+    max-width: 800px; /* Limita el ancho máximo */
+    margin-left: auto; /* Centra el bloque */
+    margin-right: auto; /* Centra el bloque */
+}
+
+
 
 /* Footer */
 footer {
-    background-color: #333;
-    color: white;
+    background-color: #333; /* Color de fondo oscuro */
+    color: #fff; /* Color del texto blanco */
+    padding: 40px 0; /* Espaciado interno */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* Distribuye columnas equitativamente */
+    max-width: 1200px; /* Ancho máximo del footer */
+    margin: 0 auto; /* Centra el contenido del footer */
+}
+
+.footer-column {
+    flex-basis: 30%; /* Cada columna ocupará un 30% del espacio */
+}
+
+.footer-column h3 {
+    margin-bottom: 20px; /* Espaciado debajo de los títulos */
+    font-size: 18px;
+    text-transform: uppercase; /* Mayúsculas en títulos */
+    color: #faf0e6; /* Color de los títulos */
+}
+
+.footer-column p, .footer-column ul, .footer-column li {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.footer-column ul {
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px; /* Espaciado entre los elementos de la lista */
+}
+
+.footer-column ul li a {
+    color: #fff; /* Color del texto de los links */
+    text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+    color: #faf0e6; /* Cambia el color del link al pasar el ratón */
+}
+  /*MODAL*/
+  /* Estilos para el modal */
+/* Modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Fijo en la pantalla */
+    z-index: 1000; /* Por encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    overflow: auto; /* Permitir el desplazamiento si es necesario */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad */
+}
+
+.modal-content {
+    background-color: #fff; /* Fondo blanco para el contenido */
+    margin: 15% auto; /* Centrar el modal verticalmente */
     padding: 20px;
-    text-align: center;
+    border: 1px solid #888;
+    width: 80%; /* Ajustar ancho según sea necesario */
+    max-width: 400px; /* Máximo ancho del modal */
+    position: relative; /* Para posicionar la 'X' correctamente */
+}
+
+.close {
+    color: #aaa; /* Color de la 'X' */
+    float: right; /* Alinear a la derecha */
+    font-size: 28px; /* Tamaño de la 'X' */
+    font-weight: bold;
+    cursor: pointer; /* Cursor en forma de mano */
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Cambiar color al pasar el mouse */
+    text-decoration: none; /* Sin subrayado */
+    cursor: pointer; /* Cursor en forma de mano */
+}
+
+.modal-image {
+    display: block;
+    margin: 0 auto; /* Centrar la imagen */
+}
+
+.modal-details {
+    text-align: center; /* Centrar el texto de los detalles */
+}
+
+.quantity-controls {
+    display: flex;
+    justify-content: center; /* Centrar los controles de cantidad */
+    align-items: center; /* Centrar verticalmente */
 }
